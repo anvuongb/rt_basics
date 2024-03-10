@@ -19,9 +19,10 @@ color ray_color(const ray& r) {
 bool hit_sphere(const point3& center, double radius, const ray& r) {
     vec3 oc = r.origin() - center;
     auto a = dot(r.direction(), r.direction());
-    auto b = 2*dot(r.direction(), oc);
+    auto b = 2.0 * dot(r.direction(), oc);
     auto c = dot(oc, oc) - radius * radius;
     auto discriminant = b*b - 4*a*c;
+    // printf("a=%f, b=%f, c=%f, discriminant=%f", a, b, c, discriminant);
     return (discriminant >= 0);
 }
 
